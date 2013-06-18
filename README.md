@@ -64,7 +64,7 @@ A **F**ew **A**nticipated **Q**uestions:
 
 *   **These are all strings, I want to read integers, Guids, Urls** (*[mutatis mutandis]([http://en.wikipedia.org/wiki/Mutatis_mutandis](http://en.wikipedia.org/wiki/Mutatis_mutandis))*) **instead.**
 
-    That would be useful. I accept pull requests.
+    You can do that. The default is for the settings to work with strings, but if you derive your `FooConfigurationSetting` from `ConfigurationSetting<T>` it will return values of type `T`.
 
 *   **My settings are not in Web.config or App.config, they are some place else. Do you support that?**
 

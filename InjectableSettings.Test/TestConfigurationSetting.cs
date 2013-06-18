@@ -1,6 +1,7 @@
 ﻿namespace InjectableSettings.Test
 {
 	using System.Configuration;
+	using System.Globalization;
 
 	using FluentAssertions;
 
@@ -14,6 +15,8 @@
 		public class TestableConfigurationSetting : ConfigurationSetting<string> { }
 		
 		public class IntegerConfigurationSetting : ConfigurationSetting<int> { }
+
+		public class StringConfigurationSetting : ConfigurationSetting { }
 
 		public class SettingWithDefaultConfigurationSetting : ConfigurationSetting<string>
 		{
@@ -66,13 +69,34 @@
 			var fixture = new Fixture();
 			var integer = fixture.Create<int>();
 
-			ConfigurationManager.AppSettings.Set("Integer", integer.ToString());
+			ConfigurationManager.AppSettings.Set("Integer", integer.ToString(CultureInfo.InvariantCulture));
 
 			// Act
 			var sut = new IntegerConfigurationSetting();
 
 			// Assert
 			sut.Value.Should().Be(integer);
+		}
+
+
+		[Test]
+		public void ConfigurationSettingsAreStringsByDefault()
+		{
+			// Arrange
+			var fixture = new Fixture();
+			var value = fixture.Create<string>();
+
+			ConfigurationManager.AppSettings.Set("String", value);
+
+			// Act
+
+			//// This is a type that derives from ConfigurationSetting without
+			//// a generic type specifier, so you'll get a string, which is a string by default.
+
+			var sut = new StringConfigurationSetting();
+
+			// Assert
+			sut.Value.Should().Be(value);
 		}
 	}
 }

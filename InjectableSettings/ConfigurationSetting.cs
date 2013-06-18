@@ -3,7 +3,10 @@
 	using System;
 	using System.Configuration;
 
-	public class ConfigurationSetting<T>
+	// No generic type parameter means we'll default to string
+	public abstract class ConfigurationSetting : ConfigurationSetting<string> { }
+
+	public abstract class ConfigurationSetting<T>
 	{
 		public T Value { get; set; }
 
