@@ -3,16 +3,18 @@
 	using System;
 	using System.Configuration;
 
-	public class ConfigurationSetting
+	public class ConfigurationSetting<T>
 	{
-		public string Value { get; set; }
+		public T Value { get; set; }
 
-		protected ConfigurationSetting() : this(null) { }
+		protected ConfigurationSetting() : this(default(T)) { }
 
-		protected ConfigurationSetting(string defaultValue)
+		protected ConfigurationSetting(T defaultValue)
 		{
 			var key = GetAppSettingsKeyNameFromTypeName();
-			this.Value = ConfigurationManager.AppSettings[key] ?? defaultValue;
+			var value = ConfigurationManager.AppSettings[key];
+
+			this.Value = value == null ? defaultValue : (T)Convert.ChangeType(value, typeof(T));
 		}
 
 		private string GetAppSettingsKeyNameFromTypeName()

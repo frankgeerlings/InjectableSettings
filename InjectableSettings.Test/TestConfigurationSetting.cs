@@ -6,12 +6,16 @@
 
 	using NUnit.Framework;
 
+	using Ploeh.AutoFixture;
+
 	[TestFixture]
 	public class TestConfigurationSetting
 	{
-		public class TestableConfigurationSetting : ConfigurationSetting { }
+		public class TestableConfigurationSetting : ConfigurationSetting<string> { }
+		
+		public class IntegerConfigurationSetting : ConfigurationSetting<int> { }
 
-		public class SettingWithDefaultConfigurationSetting : ConfigurationSetting
+		public class SettingWithDefaultConfigurationSetting : ConfigurationSetting<string>
 		{
 			public SettingWithDefaultConfigurationSetting() : base("Default value") {}
 		}
@@ -53,6 +57,22 @@
 
 			// Assert
 			sut.Value.Should().BeNull();
+		}
+
+		[Test]
+		public void ConfigurationSettingsCanBeIntegers()
+		{
+			// Arrange
+			var fixture = new Fixture();
+			var integer = fixture.Create<int>();
+
+			ConfigurationManager.AppSettings.Set("Integer", integer.ToString());
+
+			// Act
+			var sut = new IntegerConfigurationSetting();
+
+			// Assert
+			sut.Value.Should().Be(integer);
 		}
 	}
 }
