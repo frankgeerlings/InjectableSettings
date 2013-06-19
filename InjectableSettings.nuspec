@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>InjectableSettings</id>
+    <version>1.0.0</version>
+    <authors>Frank Geerlings</authors>
+    <owners>FrankGeerlings</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Lubricant for App.config and your IoC container</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>ioc di configuration appsettings</tags>
+  </metadata>
+</package>
