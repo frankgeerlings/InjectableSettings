@@ -1,14 +1,19 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
+    <description>This is a small library for fetching configuration settings with your favourite dependency injection container. If your class depends on values stored in App.config or Web.config, you'll want a thin abstraction layer to allow for easier testing without writing a lot of repetitive code.
+
+InjectableSettings is a thin conventions-based wrapper for AppSettings key value pairs that allows for them to be injected into your class with NInject, AutoFac, Unity, Castle Windsor, or whatever IoC framework you like.</description>
     <id>InjectableSettings</id>
     <version>1.0.0</version>
     <authors>Frank Geerlings</authors>
     <owners>FrankGeerlings</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Lubricant for App.config and your IoC container</description>
-    <releaseNotes>Initial release</releaseNotes>
-    <copyright>Copyright 2013</copyright>
+    <summary>Lubricant for App.config and your IoC container</summary>
+    <projectUrl>https://github.com/frankgeerlings/InjectableSettings</projectUrl>
+    <frameworkAssemblies>
+	<frameworkAssembly assemblyName="System.Configuration"/>
+    </frameworkAssemblies>
     <tags>ioc di configuration appsettings</tags>
   </metadata>
 </package>
