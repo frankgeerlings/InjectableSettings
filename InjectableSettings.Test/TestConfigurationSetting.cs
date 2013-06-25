@@ -27,13 +27,16 @@
 		public void ConfigurationSettingsAreReadFromAppConfig()
 		{
 			// Arrange
-			ConfigurationManager.AppSettings.Set("Testable", "Value");
+			var fixture = new Fixture();
+			var value = fixture.Create<string>();
+
+			ConfigurationManager.AppSettings.Set("Testable", value);
 
 			// Act
 			var sut = new TestableConfigurationSetting();
 
 			// Assert
-			sut.Value.Should().Be("Value");
+			sut.Value.Should().Be(value);
 		}
 
 		[Test]
@@ -77,7 +80,6 @@
 			// Assert
 			sut.Value.Should().Be(integer);
 		}
-
 
 		[Test]
 		public void ConfigurationSettingsAreStringsByDefault()

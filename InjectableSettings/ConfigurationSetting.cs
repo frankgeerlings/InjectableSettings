@@ -23,9 +23,10 @@
 		private string GetAppSettingsKeyNameFromTypeName()
 		{
 			var key = this.GetType().Name.Replace("ConfigurationSetting", "");
-			if (key == this.GetType().Name)
+
+			if (key == "")
 			{
-				throw new Exception("Configuration setting type name must end with 'ConfigurationSetting'.");
+				throw new Exception("Configuration setting type cannot be named 'ConfigurationSetting'.");
 			}
 
 			var prefix = this.GetAppSettingsPrefix();

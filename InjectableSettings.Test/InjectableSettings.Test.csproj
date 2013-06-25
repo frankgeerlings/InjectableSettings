@@ -52,6 +52,7 @@
     <Compile Include="TestConfigurationSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestSettingsGroup.cs" />
+    <Compile Include="TestSettingsWithShortNames.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
