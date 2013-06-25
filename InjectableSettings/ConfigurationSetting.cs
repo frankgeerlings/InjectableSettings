@@ -27,7 +27,22 @@
 			{
 				throw new Exception("Configuration setting type name must end with 'ConfigurationSetting'.");
 			}
-			return key;
+
+			var prefix = this.GetAppSettingsPrefix();
+
+			return prefix + key;
+		}
+
+		private object GetAppSettingsPrefix()
+		{
+			var declaringType = this.GetType().DeclaringType;
+
+			if (declaringType.Name.EndsWith("Settings"))
+			{
+				return declaringType.Name.Replace("Settings", ".");
+			}
+
+			return string.Empty;
 		}
 	}
 }

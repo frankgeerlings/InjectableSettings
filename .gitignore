@@ -12,3 +12,6 @@ build/
 [Oo]bj/
 
 packages
+
+# The following is output from the build process
+NuGet

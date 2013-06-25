@@ -62,9 +62,19 @@ A **F**ew **A**nticipated **Q**uestions:
 
      No, I didn't need that. I accept pull requests though.
 
-*   **These are all strings, I want to read integers, Guids, Urls** (*[mutatis mutandis]([http://en.wikipedia.org/wiki/Mutatis_mutandis](http://en.wikipedia.org/wiki/Mutatis_mutandis))*) **instead.**
+*   **These are all strings, I want to read integers, Guids, Urls** (*[mutatis mutandis](http://en.wikipedia.org/wiki)*) **instead.**
 
     You can do that. The default is for the settings to work with strings, but if you derive your `FooConfigurationSetting` from `ConfigurationSetting<T>` it will return values of type `T`.
+
+* **I want my keys to be 'namespaced', as such:**
+
+        <add key="Redis.Server" value="redis1.example.org" />
+        <add key="Redis.Password" value="password" />
+        <add key="Redis.AppName" value="MyApp.Staging" />
+
+    You can do that by nesting your settings in a class with a name that ends with `Settings`. In this case, you make a class named `RedisSettings`  and put your `ConfigurationSetting`s for `Server`, `Password` and `AppName` nested in that class.
+    
+    As with all intended features, there is an example of this in the unit tests (see `TestSettingsGroup.cs`).
 
 *   **My settings are not in Web.config or App.config, they are some place else. Do you support that?**
 
