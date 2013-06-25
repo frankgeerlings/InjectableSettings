@@ -62,7 +62,7 @@ A **F**ew **A**nticipated **Q**uestions:
 
      No, I didn't need that. I accept pull requests though.
 
-*   **These are all strings, I want to read integers, Guids, Urls** (*[mutatis mutandis](http://en.wikipedia.org/wiki)*) **instead.**
+*   **These are all strings, I want to read integers, Guids, Urls** (*[mutatis mutandis](http://en.wikipedia.org/wiki/Mutatis_mutandis)*) **instead.**
 
     You can do that. The default is for the settings to work with strings, but if you derive your `FooConfigurationSetting` from `ConfigurationSetting<T>` it will return values of type `T`.
 
@@ -78,6 +78,6 @@ A **F**ew **A**nticipated **Q**uestions:
 
 *   **My settings are not in Web.config or App.config, they are some place else. Do you support that?**
 
-    No, and I don't think I will. It would complicate what I think should remain a trivially thin layer.
+    I have no plans for that at the moment, as it would complicate things.
 
 Thanks for reading all the way up to here.
