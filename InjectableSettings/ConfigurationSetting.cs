@@ -33,7 +33,7 @@
 			return prefix + key;
 		}
 
-		private object GetAppSettingsPrefix()
+		private string GetAppSettingsPrefix()
 		{
 			var declaringType = this.GetType().DeclaringType;
 
